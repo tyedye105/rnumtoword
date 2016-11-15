@@ -125,6 +125,13 @@ class Fixnum
       singles_word = individuals.fetch(numbers[4].to_i)
       word = ten_thousands_word.concat(" "+ thousands_word + " thousand "+ hundreds_word + " " + tens_word + " " + singles_word)
       word.split("  ").join(" ")
+    elsif digits.eql?(6) && last_two.join("").to_i.<(20) && second_two.join("").to_i.<(20)
+      hundred_thousands_word = individuals.fetch(numbers[0].to_i) + " hundred"
+      ten_thousands_word = individuals.fetch(second_two.join("").to_i)
+      hundreds_word = hundreds.fetch(numbers[3].to_i)
+      teens_word = individuals.fetch(last_two.join("").to_i)
+      word = hundred_thousands_word.concat(" " +ten_thousands_word+ " thousand "+ hundreds_word + " " + teens_word)
+      word.split("  ").join(" ")
     elsif digits.eql?(6) && last_two.join("").to_i.<(20)
       hundred_thousands_word = individuals.fetch(numbers[0].to_i) + " hundred"
       ten_thousands_word = deca.fetch(numbers[1].to_i)

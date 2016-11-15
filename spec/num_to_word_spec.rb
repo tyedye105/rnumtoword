@@ -57,4 +57,8 @@ describe('Fixnum#num_to_words') do
   it("Will translate a six digit number including a teen in the 2nd and 3rd positions")do
     expect(213431.num_to_words()).to(eq("two hundred thirteen thousand four hundred thirty one"))
   end
+
+  it("Will translate a six digit number including a teen in the 2nd and 3rd positions and last positions")do
+    expect(213413.num_to_words()).to(eq("two hundred thirteen thousand four hundred thirteen"))
+  end
  end
