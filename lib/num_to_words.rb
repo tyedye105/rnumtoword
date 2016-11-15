@@ -50,6 +50,19 @@ class Fixnum
         0 => ""
     }
 
+    thousands = {
+        1 => "one thousand",
+        2 => "two thousand",
+        3 => "three thousand",
+        4 => "four thousand",
+        5 => "five thousand",
+        6 => "six thousand",
+        7 => "seven thousand",
+        8 => "eight thousand",
+        9 => "nine thousand",
+        0 => ""
+    }
+
       string_number = self.to_s
       numbers = string_number.split("")
       last_two = numbers.last(2)
@@ -61,16 +74,6 @@ class Fixnum
       tens_word = deca.fetch(numbers[0].to_i)
       singles_word = individuals.fetch(numbers[1].to_i)
       words = tens_word.concat(" " + singles_word)
-    # elsif digits.egl?(3)
-    #   hundreds_word = individuals.fetch(numbers[0].to_i)
-    #   last_two_numbers = [numbers[1], numbers[2]]
-    #   last_two_combined = last_two_numbers.join("")
-    #   if last_two_combined.to_i.<(20)
-    #     singles_word = individuals.fetch(last_two_combined.to_i)
-    #   elsif
-    #     singles_word = deca.fetch(last_two_numbers[0])
-    #   end
-    #   words = hundreds_word.concat(" hundred " + )
     elsif digits.eql?(3) && last_two.join("").to_i.<(20)
       hundreds_word = hundreds.fetch(numbers[0].to_i)
       teens_word = individuals.fetch(last_two.join("").to_i)
@@ -80,20 +83,16 @@ class Fixnum
         tens_word = deca.fetch(numbers[1].to_i)
         hundreds_word = hundreds.fetch(numbers[0].to_i)
         words = hundreds_word.concat(" " +tens_word+ " "+singles_word)
-    elsif digits.eql?(4)
-      if numbers[2].eql?("1")
-        thousands_word =
-        hundreds_word = hundreds.fetch(numbers[0].to_i)
-        numbers.shift(2)
-        string_number = numbers.join("")
-        teens_word = tens.fetch(string_number.to_i)
-        words = hundreds_word.concat(" " + teens_word)
+    elsif digits.eql?(4) && last_two.join("").to_i.<(20)
+        thousands_word = thousands.fetch(numbers[0].to_i)
+        hundreds_word = hundreds.fetch(numbers[1].to_i)
+        teens_word = individuals.fetch(last_two.join("").to_i)
+        words = thousands_word.concat(" "+ hundreds_word +" " + teens_word)
       else
         singles_word = singles.fetch(numbers[2].to_i)
         tens_word = tens.fetch(numbers[1].to_i)
         hundreds_word = hundreds.fetch(numbers[0].to_i)
         words = hundreds_word.concat(" " +tens_word+ " "+singles_word)
-      end
 
     end
   end
