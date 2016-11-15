@@ -106,6 +106,12 @@ class Fixnum
       tens_word = deca.fetch(numbers[3].to_i)
       singles_word = individuals.fetch(numbers[4].to_i)
       word = thousands_word.concat(" "+ hundreds_word + " " + tens_word + " " + singles_word)
+    elsif digits.eql?(5) && last_two.join("").to_i.<(20)
+      ten_thousands_word = deca.fetch(numbers[0].to_i)
+      thousands_word = individuals.fetch(numbers[1].to_i) +" thousand"
+      hundreds_word = hundreds.fetch(numbers[2].to_i)
+      teens_word = individuals.fetch(last_two.join("").to_i)
+      word = ten_thousands_word.concat(" " + thousands_word + " "+ hundreds_word + " " + teens_word)
     end
   end
 end
