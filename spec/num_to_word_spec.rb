@@ -14,9 +14,9 @@ describe('Fixnum#num_to_words') do
     expect(18.num_to_words()).to(eq("eighteen"))
   end
 
-  # it('Will translate a three digit number into a word.') do
-  #     expect(118.num_to_words()).to(eq("one hundred eighteen"))
-  # end
+  it('Will translate a three digit number into a word.') do
+    expect(118.num_to_words()).to(eq("one hundred eighteen"))
+  end
   #
   # it('Will translate a four digit number into a word.') do
   #     expect(2184.num_to_words()).to(eq("two thousand one hundred eighty four"))
