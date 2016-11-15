@@ -66,6 +66,7 @@ class Fixnum
       string_number = self.to_s
       numbers = string_number.split("")
       last_two = numbers.last(2)
+      first_two = numbers.first(2)
     if digits.eql?(1)
       individuals.fetch(self)
     elsif digits.eql?(2) && self.<(20)
@@ -94,6 +95,11 @@ class Fixnum
       tens_word = deca.fetch(numbers[2].to_i)
       singles_word = individuals.fetch(numbers[3].to_i)
       words = thousands_word.concat(" "+ hundreds_word +" " + tens_word + " "+ singles_word)
+    elsif digits.eql?(5) && last_two.join("").to_i.<(20) && first_two.join("").to_i.<(20)
+      thousands_word = individuals.fetch(first_two.join("").to_i) +" thousand"
+      hundreds_word = hundreds.fetch(numbers[2].to_i)
+      teens_word = individuals.fetch(last_two.join("").to_i)
+      word = thousands_word.concat(" "+ hundreds_word + " " + teens_word)  
     end
   end
 end

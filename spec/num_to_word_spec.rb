@@ -30,4 +30,7 @@ describe('Fixnum#num_to_words') do
     expect(2355.num_to_words()).to(eq("two thousand three hundred fifty five"))
   end
 
+  it("Will translate any five digit number starting with a teen, and ending with a teen into a word") do
+    expect(15413.num_to_words()).to(eq("fifteen thousand four hundred thirteen"))
+  end
 end
