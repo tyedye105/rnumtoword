@@ -9,4 +9,8 @@ describe('Fixnum#num_to_words') do
   it('Will tranlate a two digit, non teen number to a word') do
     expect(84.num_to_words()).to(eq("eighty four"))
   end
+
+  it('Will tanslate a two digit, teen number into a word.(Include ten, eleven, and twelve)') do
+    expect(18.num_to_words()).to(eq("eighteen"))
+  end
 end

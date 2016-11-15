@@ -41,11 +41,13 @@ class Fixnum
     elsif digits.eql?(2)
       string_number = self.to_s
       numbers = string_number.split("")
-      tens_word = tens.fetch(numbers[0].to_i)
-      singles_word = singles.fetch(numbers[1].to_i)
-      words = tens_word.concat(" " + singles_word)
+      if numbers[0].eql?("1")
+        tens.fetch(self)
+      else
+        tens_word = tens.fetch(numbers[0].to_i)
+        singles_word = singles.fetch(numbers[1].to_i)
+        words = tens_word.concat(" " + singles_word)
+      end
     end
-
-
   end
 end
