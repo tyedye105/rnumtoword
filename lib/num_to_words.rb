@@ -99,7 +99,13 @@ class Fixnum
       thousands_word = individuals.fetch(first_two.join("").to_i) +" thousand"
       hundreds_word = hundreds.fetch(numbers[2].to_i)
       teens_word = individuals.fetch(last_two.join("").to_i)
-      word = thousands_word.concat(" "+ hundreds_word + " " + teens_word)  
+      word = thousands_word.concat(" "+ hundreds_word + " " + teens_word)
+    elsif digits.eql?(5) && first_two.join("").to_i.<(20)
+      thousands_word = individuals.fetch(first_two.join("").to_i) +" thousand"
+      hundreds_word = hundreds.fetch(numbers[2].to_i)
+      tens_word = deca.fetch(numbers[3].to_i)
+      singles_word = individuals.fetch(numbers[4].to_i)
+      word = thousands_word.concat(" "+ hundreds_word + " " + tens_word + " " + singles_word)
     end
   end
 end
