@@ -75,9 +75,9 @@ class Fixnum
       hundreds_word = hundreds.fetch(numbers[0].to_i)
       teens_word = individuals.fetch(last_two.join("").to_i)
       words = hundreds_word.concat(" " + teens_word)
-    elsif
-        singles_word = singles.fetch(numbers[2].to_i)
-        tens_word = tens.fetch(numbers[1].to_i)
+    elsif digits.eql?(3)
+        singles_word = individuals.fetch(numbers[2].to_i)
+        tens_word = deca.fetch(numbers[1].to_i)
         hundreds_word = hundreds.fetch(numbers[0].to_i)
         words = hundreds_word.concat(" " +tens_word+ " "+singles_word)
     elsif digits.eql?(4)
